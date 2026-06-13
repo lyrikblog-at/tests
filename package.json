@@ -1,0 +1,23 @@
+{
+  "name": "website-uptime-monitor",
+  "version": "1.0.0",
+  "description": "Playwright-based website uptime monitor with PostgreSQL logging",
+  "main": "check-website.ts",
+  "scripts": {
+    "check": "ts-node check-website.ts",
+    "check:build": "tsc && node dist/check-website.js",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.14.0",
+    "@types/pg": "^8.11.6",
+    "playwright": "^1.44.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
