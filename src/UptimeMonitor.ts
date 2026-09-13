@@ -7,7 +7,7 @@ export class UptimeMonitor {
   private readonly writer: DatabaseWriter;
 
   constructor(config: AppConfig) {
-    this.checker = new WebsiteChecker(config.targetUrl, config.requestTimeoutMs);
+    this.checker = new WebsiteChecker(config.targetUrl, config.requestTimeoutMs, config.headless);
     this.writer = new DatabaseWriter(config.database);
   }
 

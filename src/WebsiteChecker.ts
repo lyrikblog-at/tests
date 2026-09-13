@@ -12,15 +12,17 @@ export interface CheckResult {
 export class WebsiteChecker {
   private readonly url: string;
   private readonly timeoutMs: number;
+  private readonly headless: boolean;
   private browser: Browser | null = null;
 
-  constructor(url: string, timeoutMs: number) {
+  constructor(url: string, timeoutMs: number, headless: boolean = true) {
     this.url = url;
     this.timeoutMs = timeoutMs;
+    this.headless = headless;
   }
 
   async open(): Promise<void> {
-    this.browser = await chromium.launch({ headless: true });
+    this.browser = await chromium.launch({ headless: this.headless });
   }
 
   async close(): Promise<void> {

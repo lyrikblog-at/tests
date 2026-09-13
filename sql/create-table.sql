@@ -1,7 +1,7 @@
 -- Run this once to set up the database schema manually,
 -- or let the monitor create it automatically via DatabaseWriter.initialize().
 
-CREATE TABLE IF NOT EXISTS website_checks (
+CREATE TABLE IF NOT EXISTS tests.website_checks (
     id              SERIAL PRIMARY KEY,
     check_date      DATE        NOT NULL,
     check_hour      SMALLINT    NOT NULL,
