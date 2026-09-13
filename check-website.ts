@@ -1,8 +1,16 @@
 import { config } from './config/params';
 import { UptimeMonitor } from './src/UptimeMonitor';
 
+function resolveHeadless(): boolean {
+  if (process.argv.includes('--no-headless')) return false;
+  if (process.argv.includes('--headless')) return true;
+  return config.headless;
+}
+
 async function main(): Promise<void> {
-  const monitor = new UptimeMonitor(config);
+  const headless = resolveHeadless();
+  const monitor = new UptimeMonitor({ ...config, headless });
+  console.log(`Mode    : ${headless ? 'headless' : 'non-headless (browser visible)'}`);
 
   console.log(`Checking ${config.targetUrl}...`);
 
